@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    {% for object in object_list %}
+
+            Name:    {{ object.name }}<br>
+            City:    {{ object.city }}<br>
+            Address: {{ object.address }}<br>
+            
+            Size:    {{ object.size}}<br>
+            Prize    {{ object.prize}}<br>
+            
+            Created by:  {{ object.created_by}}<br>
+            <!-- poc by:  {{ object.property_img}} -->
+
+            {% if object.property_img  %}
+                <a href="{% url 'property:property-detail' object.id %}">
+                <img src="{{ object.property_img.url }}" width="400" height="200">
+                </a>
+            {% endif %}
+
+
+<a href="{% url 'property:property-update' object.id %}">Update</a>
+<a href="{% url 'property:property-delete' object.id %}">Delete</a>
+
+
+<br>
+------------------------------------------------------------------------------------------------  
+ <br>       
+            {% endfor %}
+
+</body>
+</html>
+

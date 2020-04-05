@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+       {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+ 
+
+    <form method="POST" enctype="multipart/form-data">
+    
+        {% csrf_token %}
+            
+            <label>Property Name</label>
+            <div>{{ form.name }}</div>
+           
+           <label>Property Address</label>
+            <div>{{ form.address }}</div>
+
+            <label>City</label>
+            <div>{{ form.city }}</div>
+            
+            <label class="control-label">Size</label>    
+            <div>{{ form.size }}</div>
+     
+            <label class="control-label">Prize</label>    
+            <div>{{ form.prize }} </div>
+
+           
+            <label>Property image </label>
+            <div>{{ form.property_img }}</div>
+   
+   
+            <input type="submit" name="action" class="btn btn-success">
+    </form>    
+    <a href="/login">logout</a>
+
+</body>
+</html>
+
+
+ 

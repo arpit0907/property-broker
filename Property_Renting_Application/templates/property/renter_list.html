@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>Renter List</h2>
+    {% for renter in renters_list %}
+    
+       {{renter.user.username|title}}
+       {{renter.user.email}}
+       {{renter.date_of_birth}}
+       {{renter.phone}}
+       {{renter.roles}}
+
+<br>
+    {%endfor%}
+<br>
+
+</body>
+</html>

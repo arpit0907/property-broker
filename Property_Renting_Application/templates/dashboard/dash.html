@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property</title>
+</head>
+<body>
+      <h1>{{ request.user.profile.roles }}</h1>
+
+        Username      : {{ request.user.username|title }}<br>
+        Email         : {{request.user.email|title}}<br>   
+        Role          : {{ request.user.profile.roles }}<br>
+        Date of birth : {{ request.user.profile.date_of_birth }}<br>
+
+    
+</body>
+</html>
