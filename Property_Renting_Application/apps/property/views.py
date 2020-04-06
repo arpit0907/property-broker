@@ -21,7 +21,6 @@ class PropertyListView(ListView):
     template_name = 'property/property_list.html'
     
 
-
 class PropertyUpdateView(UpdateView):
     model = Property
     form_class = PropertyForm
