@@ -35,7 +35,7 @@ SECRET_KEY = 'w*3-xr$ly2r%iy!v!g98l&mx-71y^23b-o(^bdu_l6w$3y^(8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -150,5 +150,26 @@ os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+DATABASES = {
+    'default': {
+        'ENGINE':   'django.db.backends.postgresql',
+        'NAME':     'property_renter',
+        'USER':     'postgres',
+        'PASSWORD': 'psql',
+        'HOST':     'localhost',
+        'PORT':     5432,
+    }
+}
+
+
+DEFAULT_FROM_EMAIL = 'property@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
 
 
