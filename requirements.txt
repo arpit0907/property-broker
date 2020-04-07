@@ -8,5 +8,5 @@ pytz==2019.3
 sqlparse==0.3.0
 Unipath==1.1
 
-
+Pillow
 gunicorn==19.6.0
