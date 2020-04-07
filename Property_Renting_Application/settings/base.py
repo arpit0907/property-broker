@@ -153,13 +153,15 @@ LOGIN_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql',
-        'NAME':     'property_renter',
-        'USER':     'postgres',
-        'PASSWORD': 'psql',
-        'HOST':     'localhost',
+        'NAME':     'd9moku8v760sq',
+        'USER':     'ognbhztngcszel',
+        'PASSWORD': '417bc60d5830bf9210eb933b7ae17ac49237f9d8fbfb07d51aa94c5902e3710a',
+        'HOST':     'ec2-52-207-93-32.compute-1.amazonaws.com',
         'PORT':     5432,
     }
 }
+
+
 
 
 DEFAULT_FROM_EMAIL = 'property@gmail.com'
