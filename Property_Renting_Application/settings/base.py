@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Property_Renting_Application.urls'
@@ -135,13 +137,15 @@ MEDIA_ROOT = PROJECT_APPS.child('media')
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images, Pdf)
-STATIC_ROOT = PROJECT_APPS.child('staticfiles')
+STATIC_ROOT = PROJECT_DIR.child('staticfiles')
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-   PROJECT_APPS.child("static"),
-]    
+    PROJECT_DIR.child("static"),
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
 
 LOGIN_REDIRECT_URL = '/'     
 
