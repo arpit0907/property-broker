@@ -1,6 +1,6 @@
 from django import forms 
 from property.models import Property,Profile
-from phonenumber_field.formfields import PhoneNumberField
+
 
 class PropertyForm(forms.ModelForm):
     
