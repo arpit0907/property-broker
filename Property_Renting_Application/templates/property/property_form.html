@@ -4,6 +4,11 @@
     <title></title>
 </head>
 <body>
+
+<h3>Add Property Detail</h3>
+
+
+
        {% if form.errors %}
         {% for field in form %}
             {% for error in field.errors %}
@@ -23,8 +28,8 @@
     <form method="POST" enctype="multipart/form-data">
     
         {% csrf_token %}
-            
-            <label>Property Name</label>
+            {{form.as_p}}
+          <!--   <label>Property Name</label>
             <div>{{ form.name }}</div>
            
            <label>Property Address</label>
@@ -42,10 +47,11 @@
            
             <label>Property image </label>
             <div>{{ form.property_img }}</div>
-   
+    -->
    
             <input type="submit" name="action" class="btn btn-success">
     </form>    
+<br>
     <a href="/login">logout</a>
 
 </body>

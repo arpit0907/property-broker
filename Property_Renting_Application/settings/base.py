@@ -149,7 +149,6 @@ STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 DATABASES = {
@@ -162,6 +161,9 @@ DATABASES = {
         'PORT':     5432,
     }
 }
+
+
+
 
 
 DEFAULT_FROM_EMAIL = 'property@gmail.com'

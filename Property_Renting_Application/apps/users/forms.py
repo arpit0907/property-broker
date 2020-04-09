@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from phonenumber_field.modelfields import PhoneNumberField
+from django.core.exceptions import ValidationError
+from bootstrap_datepicker_plus import DatePickerInput
+
 
 GENDER_CHOICES = (
     ('M', 'Male'),
@@ -25,10 +27,36 @@ class SignUpForm(UserCreationForm):
     city = forms.CharField()
     state = forms.CharField()
     gender = forms.ChoiceField(choices=GENDER_CHOICES)
-    date_of_birth = forms.DateField()
+    date_of_birth =forms.DateField()
+
     roles = forms.ChoiceField(choices=Roles)
 
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2','address','city','state','roles','gender','date_of_birth','phone','profile_image')
           
+   
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
+
+
+    def clean_username(self):
+        username = self.cleaned_data['username'].lower()
+        name = User.objects.filter(username=username)
+
+        if name.count():
+            raise  ValidationError("Username already exists")
+        return username
+ 
+    def clean_email(self):
+        email = self.cleaned_data['email'].lower()
+        mail = User.objects.filter(email=email)
+        if mail.count():
+            raise  ValidationError("Email already exists")
+        return email
+ 
+    
+    
