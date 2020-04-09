@@ -23,7 +23,7 @@ class SignupView(CreateView):
         
         return super(SignupView, self).form_valid(form)
 
-  class Dashboard(View):
+class Dashboard(View):
     def get(self,request):
         return render(request,'dashboard.html')
 
