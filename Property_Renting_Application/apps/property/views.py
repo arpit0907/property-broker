@@ -15,7 +15,9 @@ class PropertyCreateView(PermissionRequiredMixin,CreateView):
     success_url = '/property/list/'
 
     def form_valid(self, form, **kwargs):
+        
         property = form.save(commit=False)
+        
         property.created_by = self.request.user
         property.save()
         return redirect(self.success_url)

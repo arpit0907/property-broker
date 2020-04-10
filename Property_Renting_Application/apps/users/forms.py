@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from bootstrap_datepicker_plus import DatePickerInput
 
 
+
+
 GENDER_CHOICES = (
     ('M', 'Male'),
     ('F', 'Female'),
@@ -21,13 +23,15 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, required=False)
     email = forms.EmailField(max_length=254)
 
-    phone = forms.CharField()
+    phone = forms.CharField(max_length=10)
     profile_image = forms.FileField()
     address = forms.CharField(max_length=20)
     city = forms.CharField()
     state = forms.CharField()
     gender = forms.ChoiceField(choices=GENDER_CHOICES)
     date_of_birth =forms.DateField()
+
+
 
     roles = forms.ChoiceField(choices=Roles)
 
@@ -58,5 +62,30 @@ class SignUpForm(UserCreationForm):
             raise  ValidationError("Email already exists")
         return email
  
-    
-    
+
+    def clean_phone(self):
+        phone = self.cleaned_data['phone']
+
+        if (phone.count != 10):  
+            raise  ValidationError("Please enter 10 digit number")
+        return phone
+
+
+    # def clean_date_of_birth(self):
+    #     date_of_birth = self.cleaned_data.get('date_of_birth')
+    #     import pdb; pdb.set_trace()
+    #     if date_of_birth:
+    #         my_date_time = datetime.date(str('%m/%d/%Y'))
+    #         raise ValidationError("date must")
+    #     return  date_of_birth   
+
+
+
+# if (!DateTime.TryParseExact(dateString, "ddMMyyyy", CultureInfo.InvariantCulture,  DateTimeStyles.None, out finalDate))
+# {
+#    DateTime.TryParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture,
+#    DateTimeStyles.None, out finalDate);
+
+# }
+
+# string finaldate = finalDate.ToString("yyyy-MM-dd");

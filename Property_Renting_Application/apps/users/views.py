@@ -18,8 +18,8 @@ class SignupView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-
-        profile,created = Profile.objects.get_or_create(user=user,address=form.data.get('address'),city=form.data.get('city'),state=form.data.get('state'),roles=form.data.get('roles'),profile_image=form.files.get('profile_image'),gender=form.data.get('gender'),phone=form.data.get('phone'),date_of_birth=form.data.get('date_of_birth'))
+        
+        profile,created = Profile.objects.get_or_create(user=user,address=form.data.get('address'),city=form.data.get('city'),state=form.data.get('state'),roles=form.data.get('roles'),profile_image=form.files.get('profile_image'),gender=form.data.get('gender'),phone=form.data.get('phone'),date_of_birth=form.cleaned_data.get('date_of_birth'))
         
         return super(SignupView, self).form_valid(form)
 
