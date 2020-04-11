@@ -6,8 +6,11 @@
 <body>
 PROPERTY
 <br>
+
 <br>
 <br>
+
+ {% if request.user.profile.roles == "Owner" %}
 <a href="/">Home</a>
 <br>
 <a href="/board">Dashboard</a>
@@ -21,8 +24,19 @@ PROPERTY
 <a href="/change-password/">Change password</a>
 <br>
 <a href="/login/">logout</a>
+{% endif %}    
     
-    
+ {% if request.user.profile.roles == "Renter" %}
+<a href="/">Home</a>
+<br>
+<a href="/board">Dashboard</a>
+<br>
+<a href="/property/list/">Properity List</a>
+<br>
+<a href="/change-password/">Change password</a>
+<br>
+<a href="/login/">logout</a>
+{% endif %}    
 
     
 <!-- {% if request.user.profile.roles %}
