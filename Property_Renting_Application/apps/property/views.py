@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView
+from django.views.generic import CreateView,ListView,UpdateView,DeleteView,DetailView,TemplateView
 from property.models import *
 from property.forms import PropertyForm
 
@@ -56,3 +56,5 @@ def intrested_renter_list(request):
     context = {"intrested_renter":intrested_renter}
     return render(request,"property/intrested_renter.html",context)
   
+class TemplateAboutusView(TemplateView):    
+    template_name  = 'property/about.html'  

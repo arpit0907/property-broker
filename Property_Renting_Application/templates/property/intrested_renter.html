@@ -3,19 +3,39 @@
 {% load static %}
 {% block content %}
 
-<br>
-{% for object in intrested_renter %}
- Name:    {{ object.properties.name }}<br>
-    City:    {{ object.properties.city }}<br>
-    Address: {{object.properties.address }}<br>
-    Size:    {{ object.properties.size}}<br>
-    Prize    {{ object.properties.prize}}<br>
-    Created by:  {{ object.properties.created_by}}<br>
-    Interested Renter Name : {{object.user.username}}<br>
-    Contact Number : {{object.user.profile.phone}}<br>
-    {% if object.properties.property_img  %}
-        <img src="{{ object.properties.property_img.url }}" width="400" height="200">
-    {% endif %}
-{% endfor %}
 
-{% endblock %}
+ <div class="container">        
+            <h2> Intrested Renter List</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Size</th>
+                <th>Prize</th>
+                <th>Created by</th>
+                <th>Interested Renter Name</th>
+                <th>Contact Number </th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                {% for object in intrested_renter %}
+            <tr>
+                   <td>{{ object.properties.name }}</td>
+                   <td>{{ object.properties.city }}</td>
+                   <td>{{object.properties.address }}</td>
+                   <td>{{ object.properties.size}}</td>
+                   <td>{{ object.properties.prize}}</td>
+                   <td>{{ object.properties.created_by}}</td>
+                   <td>{{object.user.username}}</td>
+                   <td>{{object.user.profile.phone}}</td>
+             
+                  </tr>
+                {%endfor%}
+            </tbody>
+          </table>
+        </div>
+
+        {% endblock %}

@@ -13,6 +13,8 @@ urlpatterns = [
    path('property/detail/<int:pk>', PropertyDetailView.as_view(), name='property-detail'),
 
    path('renter/list',RenterListView.as_view(),name='renter-list'),
+   path('about/property',TemplateAboutusView.as_view(),name='about-us'),
+   
    path('intrested/renter',intrested_renter_list,name='intrested-renter-list'),
 
 ]

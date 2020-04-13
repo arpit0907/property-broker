@@ -3,13 +3,32 @@
 {% load static %}
 {% block content %}
 
-<h4>Dashboard</h4>
-      <h2>{{ request.user.profile.roles }}</h2>
+        <div class="container">        
+            <h2>Dashboard</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Date of birth</th>
+              </tr>
+            </thead>
+            <tbody>
+               
+            <tr>
+                   <td>{{ request.user.username|title }}</td>
+                   <td> {{request.user.email|title}}</td>
+                   <td>{{ request.user.profile.roles }}</td>
+                   <td>{{ request.user.profile.date_of_birth }}</td>
+             
+                  </tr>
+               
+            </tbody>
+          </table>
+        </div>
 
-        Username      : {{ request.user.username|title }}<br>
-        Email         : {{request.user.email|title}}<br>   
-        Role          : {{ request.user.profile.roles }}<br>
-        Date of birth : {{ request.user.profile.date_of_birth }}<br>
 
+   
     
 {% endblock %}

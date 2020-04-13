@@ -3,17 +3,29 @@
 {% load static %}
 {% block content %}
 
-    <h2>Renter List</h2>
-    {% for renter in renters_list %}
     
-       {{renter.user.username|title}}
-       {{renter.user.email}}
-       {{renter.date_of_birth}}
-       {{renter.phone}}
-       
-    
-<br>
-    {%endfor%}
-<br>
-
+        <div class="container">        
+            <h2>Renter List</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Renter Name</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Contact Number</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for renter in renters_list %}
+            <tr>
+                   <td>{{renter.user.username|title}}</td>
+                   <td>{{renter.user.email}}</td>
+                   <td>{{renter.date_of_birth}}</td>
+                   <td>{{renter.phone}}</td>
+             
+                  </tr>
+                {%endfor%}
+            </tbody>
+          </table>
+        </div>
 {% endblock %}
