@@ -1,5 +1,6 @@
 from django.urls import path
 from property.views import *
+from .ajax import *
 
 app_name = 'property'
 
@@ -12,5 +13,14 @@ urlpatterns = [
    path('property/detail/<int:pk>', PropertyDetailView.as_view(), name='property-detail'),
 
    path('renter/list',RenterListView.as_view(),name='renter-list'),
+   path('about/property',TemplateAboutusView.as_view(),name='about-us'),
+   
+   path('intrested/renter',intrested_renter_list,name='intrested-renter-list'),
 
 ]
+ajaxpatterns = [
+   
+    path('ajax/property/intrested/',property_renter_intrested,name='property-renter-intreted'),
+]    
+
+urlpatterns = urlpatterns + ajaxpatterns

@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Property</title>
-</head>
-<body>
-      <h1>{{ request.user.profile.roles }}</h1>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
 
-        Username      : {{ request.user.username|title }}<br>
-        Email         : {{request.user.email|title}}<br>   
-        Role          : {{ request.user.profile.roles }}<br>
-        Date of birth : {{ request.user.profile.date_of_birth }}<br>
+        <div class="container">        
+            <h2>Dashboard</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Date of birth</th>
+              </tr>
+            </thead>
+            <tbody>
+               
+            <tr>
+                   <td>{{ request.user.username|title }}</td>
+                   <td> {{request.user.email|title}}</td>
+                   <td>{{ request.user.profile.roles }}</td>
+                   <td>{{ request.user.profile.date_of_birth }}</td>
+             
+                  </tr>
+               
+            </tbody>
+          </table>
+        </div>
 
+
+   
     
-</body>
-</html>
+{% endblock %}

@@ -1,13 +1,17 @@
 from django import forms 
 from property.models import Property,Profile
+<<<<<<< HEAD
 
+=======
+from django.core.exceptions import ValidationError
+>>>>>>> 3673c9c91c38dedfcda61ad57b684c92ebc756ec
 
 class PropertyForm(forms.ModelForm):
     
     
     class Meta:
         model = Property
-        fields = ('name','city','property_img','prize','size','address')
+        fields = ('name','city','size','prize','address','property_img')
 
 
     # def __init__(self, *args, **kwargs):
@@ -16,8 +20,16 @@ class PropertyForm(forms.ModelForm):
     #     self.fields['user_defined_code']=forms.ModelChoiceField(queryset=Profile.objects.filter(phone=phone))
 
 
-    # def clean_name(self):
-    #     name = self.cleaned_data['name']
-    #     if Property.objects.filter(name=name).exists():
-    #         raise forms.ValidationError("You have already have name with same name")
-    #     return name         
+    # def clean_address(self):
+    #     address = self.cleaned_data['address']
+        
+    #     if address != ' ': 
+    #         raise forms.ValidationError("Please fill address")
+    #     return address         
+
+
+    # def clean_property_img(self):
+    #     property_img = self.cleaned_data['property_img']
+    #     if property_img != '': 
+    #         raise forms.ValidationError("Please select the image of property")
+    #     return property_img       

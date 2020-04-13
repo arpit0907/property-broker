@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
+
+ <div class="container">        
+            <h2> Intrested Renter List</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Size</th>
+                <th>Prize</th>
+                <th>Created by</th>
+                <th>Interested Renter Name</th>
+                <th>Contact Number </th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                {% for object in intrested_renter %}
+            <tr>
+                   <td>{{ object.properties.name }}</td>
+                   <td>{{ object.properties.city }}</td>
+                   <td>{{object.properties.address }}</td>
+                   <td>{{ object.properties.size}}</td>
+                   <td>{{ object.properties.prize}}</td>
+                   <td>{{ object.properties.created_by}}</td>
+                   <td>{{object.user.username}}</td>
+                   <td>{{object.user.profile.phone}}</td>
+             
+                  </tr>
+                {%endfor%}
+            </tbody>
+          </table>
+        </div>
+
+        {% endblock %}

@@ -1,4 +1,8 @@
 *.pyc
 .env
 local.py
+<<<<<<< HEAD
 media/
+=======
+media/
+>>>>>>> 3673c9c91c38dedfcda61ad57b684c92ebc756ec
