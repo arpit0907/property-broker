@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Property</title>
-</head>
-<body>
-      <h1>{{ request.user.profile.roles }}</h1>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
+<h4>Dashboard</h4>
+      <h2>{{ request.user.profile.roles }}</h2>
 
         Username      : {{ request.user.username|title }}<br>
         Email         : {{request.user.email|title}}<br>   
@@ -12,5 +12,4 @@
         Date of birth : {{ request.user.profile.date_of_birth }}<br>
 
     
-</body>
-</html>
+{% endblock %}

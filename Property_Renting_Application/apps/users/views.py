@@ -25,7 +25,6 @@ class SignupView(CreateView):
 
 class Dashboard(View):
     def get(self,request):
-        
         return render(request,'dashboard.html')
 
 

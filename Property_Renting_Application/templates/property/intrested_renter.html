@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
+<br>
+{% for object in intrested_renter %}
+ Name:    {{ object.properties.name }}<br>
+    City:    {{ object.properties.city }}<br>
+    Address: {{object.properties.address }}<br>
+    Size:    {{ object.properties.size}}<br>
+    Prize    {{ object.properties.prize}}<br>
+    Created by:  {{ object.properties.created_by}}<br>
+    Interested Renter Name : {{object.user.username}}<br>
+    Contact Number : {{object.user.profile.phone}}<br>
+    {% if object.properties.property_img  %}
+        <img src="{{ object.properties.property_img.url }}" width="400" height="200">
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

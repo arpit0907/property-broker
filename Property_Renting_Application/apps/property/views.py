@@ -24,6 +24,7 @@ class PropertyCreateView(PermissionRequiredMixin,CreateView):
 
 
 class PropertyListView(ListView):
+   
     model = Property
     template_name = 'property/property_list.html'
     
@@ -50,3 +51,8 @@ class RenterListView(ListView):
     context_object_name = 'renters_list'
     # paginate_by = 10
 
+def intrested_renter_list(request):
+    intrested_renter = Interested.objects.filter(properties__created_by_id = request.user.id)
+    context = {"intrested_renter":intrested_renter}
+    return render(request,"property/intrested_renter.html",context)
+  

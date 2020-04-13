@@ -1,0 +1,63 @@
+{% load static %} 
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+      <div class="header-container d-flex align-items-center">
+        <div class="logo mr-auto">
+          <h1 class="text-light"><a href="index.html"><span>PropertyDeal</span></a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+{% if request.user.profile.roles == "Owner" %}
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/board">Dashboard</a></li>
+            <li><a href="/renter/list">Renter List</a></li>
+            <li><a href="/intrested/renter">Intrested Renter List</a></li>
+            
+            
+            <li class="drop-down"><a href="">Property</a>
+              <ul>
+                <li><a href="/add/property/">Create Property</a></li>
+                <li><a href="/property/list/">Properity List</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Setting</a>
+              <ul>
+                <li><a href="/login/">Logout</a></li>
+                <li><a href="/change-password/">Change Password</a></li>
+              </ul>
+            </li>
+          </ul>
+          {% endif %}
+        </nav><!-- .nav-menu -->
+{% if request.user.profile.roles == "Renter" %}
+       <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/board">Dashboard</a></li>
+            
+            
+            
+            <li class="drop-down"><a href="">Property</a>
+              <ul>
+               
+                <li><a href="/property/list/">Properity List</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Setting</a>
+              <ul>
+                <li><a href="/login/">Logout</a></li>
+                <li><a href="/change-password/">Change Password</a></li>
+              </ul>
+            </li>
+          </ul>
+          {% endif %}
+        </nav><!-- .nav-menu -->  
+      
+
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->

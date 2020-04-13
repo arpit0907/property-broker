@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
 <h3>Property List</h3>
 {% if request.user.profile.roles == "Owner" %}
     {% for object in object_list %}
@@ -38,11 +37,13 @@
                 <img src="{{ object.property_img.url }}" width="400" height="200">
                 </a>
             {% endif %}
+<button type="button" onclick="alert('Hello world!')">Apply</button>
 <br>
+
 ------------------------------------------------------------------------------------------------  <br>       
     {% endfor %}
 {% endif %}
-
+{% endblock %}
 
 
 </body>

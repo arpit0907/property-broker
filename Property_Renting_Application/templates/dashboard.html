@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-PROPERTY
-<br>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
 
-<br>
-<br>
 
+<!-- 
  {% if request.user.profile.roles == "Owner" %}
 <a href="/">Home</a>
 <br>
@@ -39,15 +34,6 @@ PROPERTY
 {% endif %}    
 
     
-<!-- {% if request.user.profile.roles %}
- <h5>Renter</h5>
- 
-        Username      : {{ request.user.username }}<br>
-        Email         : {{request.user.email}}<br>   
-        Role          : {{ request.user.profile.roles }}<br>
-        Date of birth : {{ request.user.profile.date_of_birth }}<br>
+ -->
 
-{% endif %}
-        -->
-</body>
-</html>
+{% endblock %}
