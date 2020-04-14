@@ -16,11 +16,13 @@ urlpatterns = [
    path('about/property',TemplateAboutusView.as_view(),name='about-us'),
    
    path('intrested/renter',intrested_renter_list,name='intrested-renter-list'),
+   path('approve/renter',approve_renter_list,name='approve-renter-list'),
 
 ]
 ajaxpatterns = [
    
     path('ajax/property/intrested/',property_renter_intrested,name='property-renter-intreted'),
+    path('ajax/property/approve/',property_approve_intrested,name='property-approve-renter'),
 ]    
 
 urlpatterns = urlpatterns + ajaxpatterns

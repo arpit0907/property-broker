@@ -58,10 +58,11 @@ class Interested(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_intrested')
     properties = models.ForeignKey(Property,on_delete=models.CASCADE,related_name='property_owner') 
     
+    approve = models.BooleanField(null=True)
     
-    def __str__(self):
-        return self.user.username 
 
+    def __int__(self):
+        return self.properties.id
 
 
 

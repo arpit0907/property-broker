@@ -50,11 +50,17 @@ class RenterListView(ListView):
     template_name = 'property/renter_list.html'
     context_object_name = 'renters_list'
     # paginate_by = 10
+  
+class TemplateAboutusView(TemplateView):    
+    template_name  = 'property/about.html'  
+
 
 def intrested_renter_list(request):
     intrested_renter = Interested.objects.filter(properties__created_by_id = request.user.id)
     context = {"intrested_renter":intrested_renter}
     return render(request,"property/intrested_renter.html",context)
-  
-class TemplateAboutusView(TemplateView):    
-    template_name  = 'property/about.html'  
+
+def approve_renter_list(request):
+    approve_renter = Interested.objects.filter(user = request.user.id,approve =True) 
+    context = {"approve_renter":approve_renter}
+    return render(request,"property/approve_renter.html",context)
