@@ -16,6 +16,10 @@ Roles = (
     ('Owner', 'Owner'),
     ('Renter', 'Renter'),
 )
+PROPERTY_TYPE =(
+    ('Rent','For Rent'),
+    ('Sale','For Sale'),
+    )
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
@@ -47,6 +51,7 @@ class Property(BaseModel):
     address = models.CharField(max_length=100,null=True, blank=True)
     city = models.CharField(max_length=100,null=True, blank=True)
     prize = models.CharField(max_length=8)
+    type_of_property = models.CharField(max_length=4, choices=PROPERTY_TYPE ,null=True ,blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='property_created_by')
 
     def __str__(self):

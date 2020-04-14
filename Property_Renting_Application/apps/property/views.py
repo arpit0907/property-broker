@@ -3,12 +3,8 @@ from django.views.generic import CreateView,ListView,UpdateView,DeleteView,Detai
 from property.models import *
 from property.forms import PropertyForm
 
-from django.contrib.auth.mixins import PermissionRequiredMixin
 
-
-class PropertyCreateView(PermissionRequiredMixin,CreateView):
-    permission_required = ('property.add_property',)
-    raise_exception = True
+class PropertyCreateView(CreateView):
 
     model = Property
     form_class = PropertyForm   
@@ -30,22 +26,26 @@ class PropertyListView(ListView):
     
 
 class PropertyUpdateView(UpdateView):
+  
     model = Property
     form_class = PropertyForm
     template_name = 'property/property_form.html'
     success_url = '/property/list/'
 
 class PropertyDeleteView(DeleteView):
+   
     model = Property
     template_name = 'property/property_confirm_delete.html'
     success_url = '/property/list/'
 
 class PropertyDetailView(DetailView):
+   
     model = Property
     template_name = 'property/property_detail.html'
 
 
 class RenterListView(ListView):
+    
     queryset = Profile.objects.filter(roles='Renter')
     template_name = 'property/renter_list.html'
     context_object_name = 'renters_list'

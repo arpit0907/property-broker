@@ -16,6 +16,7 @@
                 <th>Address</th>
                 <th>Size</th>
                 <th>Prize</th>
+                <th>Type of property</th>
                 <th>Created by</th>
               </tr>
             </thead>
@@ -33,6 +34,7 @@
                    <td> {{ object.address }}</td>
                    <td>{{ object.size }}</td>
                    <td> {{ object.prize }}</td>
+                   <td> {{ object.type_of_property }}</td>
                    <td>{{ object.created_by }}</td>
                    <td><a href="{% url 'property:property-update' object.id %}">Update</a>/<a href="{% url 'property:property-delete' object.id %}">Delete</a></td>
 
@@ -51,6 +53,7 @@
                    <td> {{ object.address }}</td>
                    <td>{{ object.size }}</td>
                    <td> {{ object.prize }}</td>
+                   <td> {{ object.type_of_property }}</td>
                    <td>{{ object.created_by }}</td>
                    
 
