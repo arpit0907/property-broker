@@ -34,12 +34,15 @@
                   
                
               
-                   <td><button type="button" class="approve_renter" data-id="{{ object.properties.id }}" data-user_id="{{object.user.id}}" data-url="{% url 'property:property-approve-renter' %}" >Approve</button></td>
+                   <td><button type="button" id="{{ object.properties.id }}" class="approve_renter" data-id="{{ object.properties.id }}" data-user_id="{{object.user.id}}" data-url="{% url 'property:property-approve-renter' %}" >Approve</button></td>
                   </tr>
                 {%endfor%}
             </tbody>
           </table>
         </div>
+
+
+
 
         {% endblock %}
 
@@ -68,14 +71,23 @@ $(document).ready( function() {
         },
         dataType: "json",
         data: {"object_id":object_id,"user_id":user_id},
-        success: function(response) {
-              
+        success: function(response) { 
+                  if(response.status == true){
+                   alert('already approved')
+                 }else{
                    alert('Successfully approved')
 
+                 } 
+                   
+                  
+
          },
+
         });
     });
 });
+
+
 
 </script>
 

@@ -33,9 +33,9 @@ class Profile(BaseModel):
     phone = models.CharField(max_length=12)
     profile_image = models.ImageField(upload_to='pic_folder')
     #profile_pic = models.ImageField(null=True, blank=True)
-    address = models.CharField(max_length=100,null=True, blank=True)
-    city = models.CharField(max_length=100,null=True, blank=True)
-    state = models.CharField(max_length=100,null=True, blank=True)
+    address = models.CharField(max_length=50,null=True, blank=True)
+    city = models.CharField(max_length=15,null=True, blank=True)
+    state = models.CharField(max_length=20,null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     date_of_birth = models.DateField(null=True, blank=True )
     roles = models.CharField(max_length=6, choices=Roles)
@@ -45,13 +45,13 @@ class Profile(BaseModel):
         return self.user.username
 
 class Property(BaseModel):
-    name = models.CharField(max_length=25)
-    size = models.CharField(max_length=21)
-    property_img = models.ImageField(null=True, blank=True)
-    address = models.CharField(max_length=100,null=True, blank=True)
-    city = models.CharField(max_length=100,null=True, blank=True)
-    prize = models.CharField(max_length=8)
-    type_of_property = models.CharField(max_length=4, choices=PROPERTY_TYPE ,null=True ,blank=True)
+    name = models.CharField(max_length=20)
+    size = models.IntegerField()
+    property_img = models.ImageField(upload_to="media/")
+    address = models.CharField(max_length=50,null=True, blank=True)
+    city = models.CharField(max_length=15,null=True, blank=True)
+    prize = models.IntegerField()
+    type_of_property = models.CharField(max_length=4, choices=PROPERTY_TYPE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='property_created_by')
 
     def __str__(self):

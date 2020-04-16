@@ -71,21 +71,4 @@ class SignUpForm(UserCreationForm):
         return phone
 
 
-    # def clean_date_of_birth(self):
-    #     date_of_birth = self.cleaned_data.get('date_of_birth')
-    #     import pdb; pdb.set_trace()
-    #     if date_of_birth:
-    #         my_date_time = datetime.date(str('%m/%d/%Y'))
-    #         raise ValidationError("date must")
-    #     return  date_of_birth   
 
-
-
-# if (!DateTime.TryParseExact(dateString, "ddMMyyyy", CultureInfo.InvariantCulture,  DateTimeStyles.None, out finalDate))
-# {
-#    DateTime.TryParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture,
-#    DateTimeStyles.None, out finalDate);
-
-# }
-
-# string finaldate = finalDate.ToString("yyyy-MM-dd");
