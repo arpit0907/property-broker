@@ -62,16 +62,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-#For social auth
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
-
-
 
 AUTHENTICATION_BACKENDS = [
     #'social_core.backends.linkedin.LinkedinOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
+    #'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
@@ -94,10 +89,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-#simpleisbetter
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', 
             ],
         },
     },
@@ -167,22 +158,12 @@ STATICFILES_DIRS = [
    PROJECT_APPS.child("static"),
 ]    
 
-#LOGIN_REDIRECT_URL = '/'                          
+LOGIN_REDIRECT_URL = '/'                          
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = '/static/'
-
-
-#for social app
-LOGIN_URL = 'login/'
-LOGOUT_URL = 'logout/'
-LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False
-
 
 
 DATABASES = {
