@@ -23,7 +23,7 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, required=False)
     email = forms.EmailField(max_length=254)
 
-    phone = forms.CharField(max_length=10)
+    phone = forms.IntegerField()
     profile_image = forms.FileField()
     address = forms.CharField(max_length=20)
     city = forms.CharField()
@@ -63,12 +63,12 @@ class SignUpForm(UserCreationForm):
         return email
  
 
-    def clean_phone(self):
-        phone = self.cleaned_data['phone']
+    # def clean_phone(self):
+    #     phone = self.cleaned_data['phone']
 
-        if (phone.count != 10):  
-            raise  ValidationError("Please enter 10 digit number")
-        return phone
+    #     if (phone.count != 10):  
+    #         raise  ValidationError("Please enter 10 digit number")
+    #     return phone
 
 
 

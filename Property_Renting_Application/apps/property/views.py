@@ -62,5 +62,6 @@ def intrested_renter_list(request):
 
 def approve_renter_list(request):
     approve_renter = Interested.objects.filter(user = request.user.id,approve =True) 
+     
     context = {"approve_renter":approve_renter}
     return render(request,"property/approve_renter.html",context)
