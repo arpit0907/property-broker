@@ -33,9 +33,11 @@ urlpatterns += [
 
     
     #path('social-auth/', include('social_django.urls', namespace="social")),
-     path('oauth/', include('social_django.urls', namespace='social')), 
+     path('oauth/', include('social_django.urls', namespace='social')),
 
 
+
+# for forget password
     path('password_reset/',PasswordResetView.as_view(template_name='registration/password_rest.html'), name='password_reset'),
     path('password_reset/done/',PasswordResetDoneView.as_view(template_name='registration/password_reset_message.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
