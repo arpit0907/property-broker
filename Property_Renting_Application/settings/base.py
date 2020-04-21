@@ -62,17 +62,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 AUTHENTICATION_BACKENDS = [
     #'social_core.backends.linkedin.LinkedinOAuth2',
     #'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.github.GithubOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
 SOCIAL_AUTH_FACEBOOK_KEY = "507662179903915"        # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = "38010f5f2d4759ce3afe665738217f5d"  # App Secret
+SOCIAL_AUTH_GITHUB_KEY = "f8619745b4a59217ee12"        # App ID
+SOCIAL_AUTH_GITHUB_SECRET = "ebd4069f6c619274bae58ee45eb4793568208546"  # App Secret
 
 
 
@@ -89,6 +94,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
