@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView,View
 from property.models import Profile,Property
 from django.contrib.auth.models import User
-
+import requests
+from django.conf import settings
+from social_django.models import UserSocialAuth
 
 class SignupView(CreateView):
     model = User
@@ -33,3 +35,20 @@ def index(request):
         return redirect('login')
     else:
         return redirect('users:dashboard')
+
+
+def instagram(request):
+
+    data = {'client_id':settings.SOCIAL_AUTH_INSTAGRAM_KEY, "client_secret":settings.SOCIAL_AUTH_INSTAGRAM_SECRET, "grant_type":"authorization_code", "redirect_uri":'https://92a0c747.ngrok.io/insta', "code": request.GET['code']}
+    res = requests.post('https://api.instagram.com/oauth/access_token', data=data)
+    result = requests.get("https://graph.instagram.com/"+str(res.json()['user_id'])+"?fields=id,username&access_token=" + str(res.json()['access_token']))
+    import pdb; pdb.set_trace()
+
+
+
+#     response = requests.get("https://graph.instagram.com)/#{@result["user_id"]}?fields=id,username&access_token=#{@result["access_token"]}")
+
+# def instagram_callback(request):
+#     import pdb; pdb.set_trace()
+#     return render(request, 'registration/test.html', {'access_token' : 'access_token'})
+

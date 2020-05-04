@@ -69,7 +69,7 @@ MIDDLEWARE = [
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.linkedin.LinkedinOAuth2',
     'social_core.backends.google.GoogleOAuth2',
-    #'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -88,7 +88,13 @@ SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "vVl73byWfCM1gRM9"
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ="614696473560-e4jn6g31i5uum04dgh221d54hmceeo7e.apps.googleusercontent.com"
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "e6W5F8hf_sL2XkIwS9pANyvR"
 
+SOCIAL_AUTH_INSTAGRAM_KEY = "364956607772871"         #Client ID
+SOCIAL_AUTH_INSTAGRAM_SECRET = "186f25642b18a09c766dde9a8d18a8cf"
+# SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [  ('user', 'user'),]
+SOCIAL_AUTH_INSTAGRAM_AUTH_EXTRA_ARGUMENTS = {'scope': 'user_profile,user_media'}
 
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'http://localhost:8000/'
+SOCIAL_AUTH_INSTAGRAM_REDIRECT_URI = 'https://92a0c747.ngrok.io/oauth/complete/instagram/'
 ROOT_URLCONF = 'Property_Renting_Application.urls'
 
 TEMPLATES = [
