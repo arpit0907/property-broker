@@ -20,19 +20,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView,LogoutView,PasswordChangeView,PasswordResetView,PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
 #from django.contrib.auth import views as auth_views
+from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += [
+
+#i18n_patterns used for multilanguage purpose
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('property.urls', namespace='property')),
     path('', include('users.urls', namespace='users')),
     path('login/', LoginView.as_view(template_name='registration/login.html'), name="login"),
     path('logout/', LogoutView.as_view(template_name= 'registration/login.html'), name="logout"),
     path('change-password/',PasswordChangeView.as_view(template_name='registration/change-password.html',success_url = '/change-password/'),name='change_password'),
-
     
-    #path('social-auth/', include('social_django.urls', namespace="social")),
+# for social login    
     path('oauth/', include('social_django.urls', namespace='social')),
 
 
@@ -42,4 +45,4 @@ urlpatterns += [
     path('password_reset/done/',PasswordResetDoneView.as_view(template_name='registration/password_reset_message.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/',PasswordResetCompleteView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_complete'),
-]
+)

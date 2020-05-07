@@ -4,7 +4,7 @@ from datetime import datetime
 from django.contrib.auth.models import User,Group
 
 
-
+from colorfield.fields import ColorField
 
 # Create your models here.
 GENDER_CHOICES = (
@@ -53,6 +53,8 @@ class Property(BaseModel):
     prize = models.IntegerField()
     type_of_property = models.CharField(max_length=4, choices=PROPERTY_TYPE)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='property_created_by')
+
+    color =ColorField()
 
     def __str__(self):
         return self.name

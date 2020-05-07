@@ -1,4 +1,5 @@
 {% load static %} 
+
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container">
       <div class="header-container d-flex align-items-center">
@@ -9,12 +10,15 @@
         </div>
 
 {% if request.user.profile.roles == "Owner" %}
-        <nav class="nav-menu d-none d-lg-block">
+      
+      
+      <div class="aaa">
+        <nav class="nav-menu d-none d-lg-block" style="color:{{ object_list.last.color}}">
           <ul>
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="/board">Dashboard</a></li>
+            <li><a href="/board"  style="color:{{ object_list.last.color}}">Dashboard</a></li>
             <li><a href="/renter/list">Renter List</a></li>
-            <li><a href="/intrested/renter">Intrested Renter List</a></li>
+            <li><a href="/intrested/renter" style="color:{{ object_list.last.color}}">Intrested Renter List</a></li>
             
             
             <li class="drop-down"><a href="">Property</a>
@@ -23,15 +27,16 @@
                 <li><a href="/property/list/">Properity List</a></li>
               </ul>
             </li>
-            <li class="drop-down"><a href="">Setting</a>
+            <li class="drop-down"><a href="" style="color:{{ object_list.last.color}}">Setting</a>
               <ul>
                 <li><a href="/login/">Logout</a></li>
                 <li><a href="/change-password/">Change Password</a></li>
               </ul>
             </li>
           </ul>
-          {% endif %}
         </nav><!-- .nav-menu -->
+          {% endif %}
+        </div>
 {% if request.user.profile.roles == "Renter" %}
        <nav class="nav-menu d-none d-lg-block">
           <ul>
@@ -54,11 +59,13 @@
               </ul>
             </li>
           </ul>
-          {% endif %}
         </nav><!-- .nav-menu -->  
+          {% endif %}
       
 
 
       </div><!-- End Header Container -->
     </div>
+
+
   </header><!-- End Header -->

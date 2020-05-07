@@ -45,12 +45,22 @@
            
             <label>Property image </label>
             <div>{{ form.property_img }}</div>
-    -->
-   
-            <input type="submit" name="action" class="btn btn-success">
-    </form>    
-
-    
+    -->       
+          <!--   <label>Color </label>
+            <div>{{ form.color }}</div>
+          
+            Color: <input class="jscolor" value="ab2567">
+     -->
+             <button type="submit">Submit</button>
+            <!-- <input type="submit" name="action" class="btn btn-success">
+     --></form>    
 
 
 {% endblock %} 
+{% block script %}
+
+<script src="{% static 'js/jscolor.js' %}"></script>
+ 
+
+{% endblock %}  
+

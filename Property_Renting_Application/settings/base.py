@@ -14,6 +14,10 @@ import os,sys
 from dotenv import load_dotenv
 from unipath import Path
 
+
+from django.utils.translation import ugettext_lazy as _ # used for multilanguage in a project
+
+
 PROJECT_DIR = Path(__file__).ancestor(3)
 PROJECT_APPS = Path(__file__).ancestor(2)
 
@@ -23,8 +27,6 @@ load_dotenv(os.path.join(PROJECT_DIR, '.env'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -51,17 +53,24 @@ INSTALLED_APPS = [
     'property',
     'users',
     'widget_tweaks',
+    'colorfield',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+   
+    
+    'django.middleware.locale.LocaleMiddleware',# used for multilanguage purpose
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
 
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
@@ -114,6 +123,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Property_Renting_Application.wsgi.application'
 
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('zh-hans', _('Simplified Chinese')),
+)
+
+
+#LOCALE_PATH = (os.path.join(BASE_DIR, 'locale'),)
+
+LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale'), )
+
+
+
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -148,6 +170,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+prefix_default_language=False
 
 TIME_ZONE = 'UTC'
 
@@ -156,6 +179,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
 
 
 # Static files (CSS, JavaScript, Images)
