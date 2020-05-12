@@ -8,6 +8,13 @@ from django.views.generic.edit import CreateView,View
 from property.models import Profile,Property
 from django.contrib.auth.models import User
 
+import logging
+from django.http import HttpResponse
+
+# This retrieves a Python logging instance (or creates it)
+logger = logging.getLogger('django')
+ 
+
 
 class SignupView(CreateView):
     model = User
@@ -33,3 +40,8 @@ def index(request):
         return redirect('login')
     else:
         return redirect('users:dashboard')
+
+def loggers(request):
+    # Send the Test!! log message to standard out
+    logger.error("Test!!")
+    return HttpResponse("Hello logging world.")

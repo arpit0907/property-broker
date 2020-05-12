@@ -15,6 +15,10 @@ urlpatterns = [
    path('board',TemplateView.as_view(template_name="dashboard/dash.html"),name="board"),
   
    path('signup/',SignupView.as_view(), name='signup'),
+
+   path('logger', loggers, name='index'),
+
+
 ]
 
 

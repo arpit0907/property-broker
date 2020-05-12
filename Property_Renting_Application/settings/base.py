@@ -231,4 +231,33 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 
+# Django logger information
+LOGGING = {
+    'version': 1,
+    # Version of logging
+    'disable_existing_loggers': False,
+    #disable logging 
+    # Handlers #############################################################
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'dataflair-debug.log',# file name to restore logs
+        },
+########################################################################
+        # these console statement used for logging whole system
 
+        # 'console': {
+        #     'class': 'logging.StreamHandler',
+        # },
+    },
+    # Loggers ####################################################################
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR')
+        },
+    },
+}
