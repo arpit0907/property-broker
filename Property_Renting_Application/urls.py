@@ -27,7 +27,26 @@ urlpatterns = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + 
 
 #i18n_patterns used for multilanguage purpose
 
-urlpatterns += i18n_patterns(
+# urlpatterns += i18n_patterns(
+#     path('admin/', admin.site.urls),
+#     path('', include('property.urls', namespace='property')),
+#     path('', include('users.urls', namespace='users')),
+#     path('login/', LoginView.as_view(template_name='registration/login.html'), name="login"),
+#     path('logout/', LogoutView.as_view(template_name= 'registration/login.html'), name="logout"),
+#     path('change-password/',PasswordChangeView.as_view(template_name='registration/change-password.html',success_url = '/change-password/'),name='change_password'),
+    
+# # for social login    
+#     path('oauth/', include('social_django.urls', namespace='social')),
+
+
+
+# # for forget password
+#     path('password_reset/',PasswordResetView.as_view(template_name='registration/password_rest.html'), name='password_reset'),
+#     path('password_reset/done/',PasswordResetDoneView.as_view(template_name='registration/password_reset_message.html'), name='password_reset_done'),
+#     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+#     path('reset/done/',PasswordResetCompleteView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_complete'),
+# )
+urlpatterns +=[
     path('admin/', admin.site.urls),
     path('', include('property.urls', namespace='property')),
     path('', include('users.urls', namespace='users')),
@@ -45,4 +64,4 @@ urlpatterns += i18n_patterns(
     path('password_reset/done/',PasswordResetDoneView.as_view(template_name='registration/password_reset_message.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/',PasswordResetCompleteView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_complete'),
-)
+]

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'users',
     'widget_tweaks',
     'colorfield',
+    'webpush',
 
 ]
 
@@ -260,4 +261,17 @@ LOGGING = {
             'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR')
         },
     },
+}
+
+
+
+#FOR push notification
+AUTH_PASSWORD_VALIDATORS = [
+    
+]
+
+WEBPUSH_SETTINGS = {
+   "VAPID_PUBLIC_KEY": "BLoA2UgLqZ1SLlNG7EnsmLRyNkKugQDbeaRYcEVUGRuGKPasuYQPUoQJFkxv9OnHUc3-Vb1K_FSqd0QnXaEwPps",
+   "VAPID_PRIVATE_KEY": "rD_uvu_WGQ8AzNvxoR2yheQCyyLA3baqVho_JRWsQUE",
+   "VAPID_ADMIN_EMAIL": "arpit@thoughtwin.com"
 }
