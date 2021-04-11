@@ -68,6 +68,7 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     #'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
@@ -76,11 +77,17 @@ AUTHENTICATION_BACKENDS = [
 
 SOCIAL_AUTH_FACEBOOK_KEY = "507662179903915"        # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = "38010f5f2d4759ce3afe665738217f5d"  # App Secret
+
 SOCIAL_AUTH_GITHUB_KEY = "f8619745b4a59217ee12"        # App ID
 SOCIAL_AUTH_GITHUB_SECRET = "ebd4069f6c619274bae58ee45eb4793568208546"  # App Secret
 
 SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "818nhhpyjsjk52"         #Client ID
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "vVl73byWfCM1gRM9" 
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ="614696473560-e4jn6g31i5uum04dgh221d54hmceeo7e.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "e6W5F8hf_sL2XkIwS9pANyvR"
+
 
 ROOT_URLCONF = 'Property_Renting_Application.urls'
 
